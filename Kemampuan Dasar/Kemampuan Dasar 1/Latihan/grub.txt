@@ -1,0 +1,12 @@
+GRUB adalah salah satu program boot-loader yang mulai populer akhir-akhir ini. Sebagaimana LILO, GRUB dipasang pada master boot record hardisk atau pada sektor pertama dari partisi hardisk. GRUB mengizikan kita untuk menempatkan intruksi spesifik yang berfungsi untuk memanggil menu GRUB atau pada lingkungan perintah-perintah yang berguna untuk melakukan konfigurasi boot-loader. Dengan demikian, kita bisa memilih sistem operasi mana yang akan kita panggil, ataupun memasukan parameter-parameter khusus pada kernel saat kita ingin boot ke sistem operasi LINUX.
+
+Kernel Parameter
+Ada tiga cara untuk meneruskan opsi ke kernel dan dengan demikian mengontrol perilakunya:
+
+    Saat membangun kernel — di file konfigurasi kernel. Lihat Kompilasi Kernel # untuk detailnya.
+    Saat memulai kernel — menggunakan parameter baris perintah (biasanya melalui boot loader).
+    Saat runtime — melalui file di / proc / sys / (lihat sysctl) dan / sys /.
+
+Di antara ketiga metode tersebut, opsi yang dapat dikonfigurasi berbeda dalam ketersediaan, namanya, dan metode yang ditentukan. Halaman ini hanya menjelaskan metode kedua (parameter baris perintah kernel) dan menampilkan daftar parameter kernel yang paling sering digunakan di Arch Linux.
+
+Sebagian besar parameter dikaitkan dengan subsistem dan hanya berfungsi jika kernel dikonfigurasi dengan subsistem bawaan tersebut. Parameter tersebut juga bergantung pada keberadaan perangkat keras tempat mereka terkait

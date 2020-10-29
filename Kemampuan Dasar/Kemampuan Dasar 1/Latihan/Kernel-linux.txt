@@ -1,0 +1,16 @@
+Lokasi kernel pada system
+Kernel berfungsi untuk melayani perangkat lunak aplikasi untuk dapat mengakses perangkat keras atau hardware secara aman.
+Kernel juga berfungsi sebagai pengatur kapan dan berapa lama sebuah program aplikasi dapat menggunakan satu bagian perangkat keras. Hal tersebut biasanya disebut dengan Multiplexing
+Lokasi kernel pada etc
+Membantu dan mendukung perangkat lunak aplikasi untuk mengeksekusi dengan fitur abtraksi
+Lokasi kernel pada lib
+Membantu menyimpan berbagai macam librari yang digunakan untuk aplikasi lain. Konsep penggunaan librari bersama ini membuat aplikasi di linux dapat menghemat ukuran.
+Lokasi kernel pada usr/src
+Berfungsi untuk menyimpan source code dari aplikasi sistem.
+Lokasi kernel pada proc
+Berfungsi infomasi dari sistem, tetapi jika kita mengubah isi informasi dari beberapa file /proc juga dapat mengubah sifat jalannya sistem. 
+Lokasi kernel pada home
+Mengelompokan semua direktori home dari pengguna tersimpan di direktori ini dengan nama user masing-masing.
+Lokasi pada user src
+Merupakan tempat untuk menyimpan source code dari aplikasi sistem. 
+

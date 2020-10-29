@@ -1,0 +1,500 @@
+1. Hello world
+fidelis@ubuntu:~$ echo "Hello World"
+Hello World
+fidelis@ubuntu:~$ nano First.sh
+#!/bin/bash
+echo "Hello World"
+fidelis@ubuntu:~$ nano First.sh
+fidelis@ubuntu:~$ bash First.sh
+Hello World
+
+2. Echo command
+fidelis@ubuntu:~$ nano echo_example.sh
+#!/bin/bash
+echo "Printing text with newline"
+echo -n "Printing text without newline"
+echo -e "\nRemoving \t backslash \t characters\n"
+fidelis@ubuntu:~$ bash echo_example.sh
+Printing text with newline
+Printing text without newline
+Removing 	 backslash 	 characters
+
+3.Comment
+fidelis@ubuntu:~$ nano omment_example.sh
+fidelis@ubuntu:~$ bash comment_example.sh
+60
+#!/bin/bash
+
+# Add two numeric value
+((sum=25+35))
+
+#Print the result
+echo $sum
+
+4. Multi-line comment
+fidelis@ubuntu:~$ nano multiline-comment.sh
+fidelis@ubuntu:~$ bash multiline-comment.sh
+25
+#!/bin/bash
+: '
+The following script calculates
+the square value of the number, 5.
+'
+((area=5*5))
+echo $area
+
+5.While Loop
+fidelis@ubuntu:~$ nano while_example.sh
+fidelis@ubuntu:~$ bash while_example.sh
+1
+2
+3
+4
+5
+#!/bin/bash
+valid=true
+count=1
+while [ $valid ]
+do
+echo $count
+if [ $count -eq 5 ];
+then
+break
+fi
+((count++))
+done
+
+6.Loop
+fidelis@ubuntu:~$ nano for_example.sh
+fidelis@ubuntu:~$ bash for_example.sh
+10 9 8 7 6 5 4 3 2 1
+#!/bin/bash
+for (( counter=10; counter>0; counter-- ))
+do
+echo -n "$counter "
+done
+printf "\n"
+
+7.Get User Input
+fidelis@ubuntu:~$ nano user_input.sh
+fidelis@ubuntu:~$ bash user_input.sh
+Enter Your Name
+fidelis
+Welcome fidelis to LinuxHint
+#!/bin/bash
+echo "Enter Your Name"
+read name
+echo "Welcome $name to LinuxHint"
+
+8.Using if statement
+Welcome fidelis to LinuxHint
+fidelis@ubuntu:~$ nano simple_if.sh
+fidelis@ubuntu:~$ bash simple_if.sh
+It is a two digit number
+#!/bin/bash
+n=10
+if [ $n -lt 10 ];
+then
+echo "It is a one digit number"
+else
+echo "It is a two digit number"
+fi
+
+9.Using if statement with AND logic
+fidelis@ubuntu:~$ nano if_with_AND.sh
+fidelis@ubuntu:~$ bash if_with_AND.sh
+fidelis@ubuntu:~$ bash if_with_AND.sh
+if_with_AND.sh: line 1: !/bin/bash: No such file or directory
+Enter username
+fidelis
+Enter password
+thecitos
+invalid user
+fidelis@ubuntu:~$ bash if_with_AND.sh
+if_with_AND.sh: line 1: !/bin/bash: No such file or directory
+Enter username
+admin
+Enter password
+secret
+valid user
+!/bin/bash
+
+echo "Enter username"
+read username
+echo "Enter password"
+read password
+
+if [[ ( $username == "admin" && $password == "secret" ) ]]; then
+echo "valid user"
+else
+echo "invalid user"
+
+10.Using if statement with OR logic
+fidelis@ubuntu:~$ nano if_with_OR.sh
+fidelis@ubuntu:~$ bash if_with_OR.sh
+Enter any number
+40
+You lost the game
+fidelis@ubuntu:~$ bash if_with_OR.sh
+Enter any number
+15
+You won the game
+#!/bin/bash
+
+echo "Enter any number"
+read n
+
+if [[ ( $n -eq 15 || $n  -eq 45 ) ]]
+then
+echo "You won the game"
+else
+echo "You lost the game"
+
+11.Using else if statement
+fidelis@ubuntu:~$ nano elseif_example.sh
+fidelis@ubuntu:~$ bash elseif_example.sh
+Enter your lucky number
+101
+You got 1st prize
+fidelis@ubuntu:~$ bash elseif_example.sh
+Enter your lucky number
+100
+Sorry, try for the next time
+#!/bin/bash
+
+echo "Enter your lucky number"
+read n
+
+if [ $n -eq 101 ];
+then
+echo "You got 1st prize"
+elif [ $n -eq 510 ];
+then
+echo "You got 2nd prize"
+elif [ $n -eq 999 ];
+then
+echo "You got 3rd prize"
+
+else
+echo "Sorry, try for the next time"
+fi
+
+12.Using Case Statement
+fidelis@ubuntu:~$ nano elseif_example.sh
+fidelis@ubuntu:~$ bash elseif_example.sh
+Enter your lucky number
+101
+You got 1st prize
+fidelis@ubuntu:~$ bash elseif_example.sh
+Enter your lucky number
+100
+Sorry, try for the next time
+fidelis@ubuntu:~$ nano case_example.sh
+fidelis@ubuntu:~$ bash case_example.sh
+Enter your lucky number
+101
+echo You got 1st prize
+fidelis@ubuntu:~$ bash case_example.sh
+Enter your lucky number
+510
+You got 2nd prize
+fidelis@ubuntu:~$ bash case_example.sh
+Enter your lucky number
+999
+You got 3rd prize
+fidelis@ubuntu:~$ bash case_example.sh
+Enter your lucky number
+777
+Sorry, try for the next time
+#!/bin/bash
+
+echo "Enter your lucky number"
+read n
+case $n in
+101)
+echo echo "You got 1st prize" ;;
+510)
+echo "You got 2nd prize" ;;
+999)
+echo "You got 3rd prize" ;;
+*)
+echo "Sorry, try for the next time" ;;
+esac
+
+13. Get Arguments from Command Line
+fidelis@ubuntu:~$ nano command_line.sh
+fidelis@ubuntu:~$ bash command_line.sh Linux Hint
+Total arguments : 2
+1st Argument = Linux
+2nd argument = Hint
+#!/bin/bash
+echo "Total arguments : $#"
+echo "1st Argument = $1"
+echo "2nd argument = $2"
+
+14.Get arguments from command line with names
+fidelis@ubuntu:~$ nano command_line_names.sh
+fidelis@ubuntu:~$ bash command_line_names.sh X=45 Y=30
+X+Y=75
+#!/bin/bash
+for arg in "$@"
+do
+index=$(echo $arg | cut -f1 -d=)
+val=$(echo $arg | cut -f2 -d=)
+case $index in
+X) x=$val;;
+
+Y) y=$val;;
+
+*)
+esac
+done
+((result=x+y))
+echo "X+Y=$result"
+
+15. Combine String variables
+fidelis@ubuntu:~$ nano string_combine.sh
+fidelis@ubuntu:~$ bash string_combine.sh
+LinuxHint
+Linux+Hint is a good tutorial blog site
+#!/bin/bash
+string1="Linux"
+string2="Hint"
+echo "$string1$string2"
+string3=$string1+$string2
+string3+=" is a good tutorial blog site"
+echo $string3
+
+16.Get substring of String
+fidelis@ubuntu:~$ nano substring_example.sh
+fidelis@ubuntu:~$ bash substring_example.sh
+Linux
+#!/bin/bash
+Str="Learn Linux from LinuxHint"
+subStr=${Str:6:5}
+echo $subStr
+
+17. Add Two Numbers
+fidelis@ubuntu:~$ nano add_numbers.sh
+fidelis@ubuntu:~$ bash add_numbers.sh
+Enter first number
+25
+Enter second number
+56
+The result of addition=81
+#!/bin/bash
+echo "Enter first number"
+read x
+echo "Enter second number"
+read y
+(( sum=x+y ))
+echo "The result of addition=$sum"
+
+18. Create Function
+fidelis@ubuntu:~$ nano function_example.sh
+fidelis@ubuntu:~$ bash function_example.sh
+I like bash programming
+#!/bin/bash
+function F1()
+{
+echo 'I like bash programming'
+}
+
+F1
+
+19. Create function with Parameters
+fidelis@ubuntu:~$ nano functiol_parameter.sh
+fidelis@ubuntu:~$ bash functiol_parameter.sh
+Area is : 200
+#!/bin/bash
+
+Rectangle_Area() {
+area=$(($1 * $2))
+echo "Area is : $area"
+}
+
+Rectangle_Area 10 20
+
+20. Pass Return Value from Function
+fidelis@ubuntu:~$ nano function_return.sh
+fidelis@ubuntu:~$ bash function_return.sh
+Enter your name
+fidelis
+Return value of the function is Hello, fidelis
+#!/bin/bash
+function greeting() {
+
+str="Hello, $name"
+echo $str
+
+}
+
+echo "Enter your name"
+read name
+
+val=$(greeting)
+echo "Return value of the function is $val"
+
+21. Make Directory
+fidelis@ubuntu:~$ nano make_directory.sh
+fidelis@ubuntu:~$ bash make_directory.sh
+Enter directory name
+test_dir
+mkdir: cannot create directory ‘test_dir’: File exists
+fidelis@ubuntu:~$ ls make_directory.sh test_dir
+make_directory.sh
+
+test_dir:
+#!/bin/bash
+echo "Enter directory name"
+read newdir
+`mkdir $newdir`
+
+22. Make directory by checking existence
+fidelis@ubuntu:~$ nano directory_exist.sh
+fidelis@ubuntu:~$ bash directory_exist.sh
+Enter directory name
+newdir
+Directory created
+fidelis@ubuntu:~$ ls directory_exist.sh make_directory.sh newdir test_dir
+directory_exist.sh  make_directory.sh
+
+newdir:
+
+test_dir:
+#!/bin/bash
+echo "Enter directory name"
+read ndir
+if [ -d "$ndir" ]
+then
+echo "Directory exist"
+else
+`mkdir $ndir`
+echo "Directory created"
+fi
+
+23. Read a File
+fidelis@ubuntu:~$ nano read_file.sh
+fidelis@ubuntu:~$ bash read_file.sh
+read_file.sh: line 6: book.txt: No such file or directory
+#!/bin/bash
+file='book.txt'
+while read line; do
+echo $line
+done < $file
+
+24. Delete a File
+fidelis@ubuntu:~$ nano delete_file.sh
+fidelis@ubuntu:~$ ls delete_file.sh make_directory.sh test_dir directory_exist.sh newdir test.txt
+ls: cannot access 'test.txt': No such file or directory
+delete_file.sh  directory_exist.sh  make_directory.sh
+
+newdir:
+
+test_dir:
+fidelis@ubuntu:~$ bash delete_file.sh
+Enter filename to remove
+test.txt
+rm: cannot remove 'test.txt': No such file or directory
+fidelis@ubuntu:~$ ls delete_file.sh make_directory.sh newdir test_dir
+delete_file.sh  make_directory.sh
+
+newdir:
+
+test_dir:
+#!/bin/bash
+echo "Enter filename to remove"
+read fn
+rm -i $fn
+
+25. Append to File
+fidelis@ubuntu:~$ nano append_file.sh
+fidelis@ubuntu:~$ bash append_file.sh
+Before appending the file
+cat: book.txt: No such file or directory
+After appending the file
+Learning Laravel 5
+#!/bin/bash
+
+echo "Before appending the file"
+cat book.txt
+
+echo "Learning Laravel 5">> book.txt
+echo "After appending the file"
+cat book.txt
+
+26. Test if File Exist
+fidelis@ubuntu:~$ nano file_exist.sh
+fidelis@ubuntu:~$ ls append_file.sh delete_file.sh file_exist.sh newdir book.txt directory_exist.sh make_directory.sh test_dir
+append_file.sh  book.txt  delete_file.sh  directory_exist.sh  file_exist.sh  make_directory.sh
+
+newdir:
+
+test_dir:
+fidelis@ubuntu:~$ bash file_exist.sh book.txt
+File exists
+fidelis@ubuntu:~$ bash file_exist.sh book2.txt
+File does not exist
+#!/bin/bash
+filename=$1
+if [ -f "$filename" ]; then
+echo "File exists"
+else
+echo "File does not exist"
+fi
+
+27. Send Email
+fidelis@ubuntu:~$ nano mail_example.sh
+fidelis@ubuntu:~$ bash mail_example.sh
+mail_example.sh: line 4: to: command not found
+mail_example.sh: line 5: mail: command not found
+
+#!/bin/bash
+Recipient=”admin@example.com”
+Subject=”Greeting”
+Message=”Welcome to our site”
+`mail -s $Subject $Recipient <<< $Message`
+
+28. Get Parse Current Date
+fidelis@ubuntu:~$ nano date_parse.sh
+fidelis@ubuntu:~$ bash date_parse.sh
+Rab 28 Okt 2020 08:01:33 WIB
+Current Date is: 28-10-2020
+Current Time is: 20:01:33
+
+#!/bin/bash
+Year=`date +%Y`
+Month=`date +%m`
+Day=`date +%d`
+Hour=`date +%H`
+Minute=`date +%M`
+Second=`date +%S`
+echo `date`
+echo "Current Date is: $Day-$Month-$Year"
+echo "Current Time is: $Hour:$Minute:$Second"
+
+29. Wait Command
+fidelis@ubuntu:~$ nano wait_example.sh
+fidelis@ubuntu:~$ bash wait_example.sh
+Wait command
+Exited with status 0
+#!/bin/bash
+echo "Wait command" &
+process_id=$!
+wait $process_id
+echo "Exited with status $?"
+
+30. Sleep Command
+fidelis@ubuntu:~$ nano sleep_example.sh
+fidelis@ubuntu:~$ bash sleep_example.sh
+“Wait for 5 seconds”
+“Completed”
+#!/bin/bash
+
+echo “Wait for 5 seconds”
+sleep 5
+echo “Completed”
+
+
+
+

@@ -1,0 +1,74 @@
+1.fidelis@ubuntu:~$ ls berfungsi untuk menampilkan file pada sistem linux
+Desktop    Downloads  Pictures  snap       Videos
+Documents  Music      Public    Templates
+
+2.fidelis@ubuntu:~$ ls -a berfungsi untuk menampilkan file atau direktori
+.              .cache     .gnupg    .profile  .sudo_as_admin_successful
+..             .config    .local    Public    Templates
+.bash_history  Desktop    .mozilla  snap      Videos
+.bash_logout   Documents  Music     soal
+.bashrc        Downloads  Pictures  .ssh
+
+3.fidelis@ubuntu:~$ cat filename berfungsi untuk menampikan teks file, bisa juga untuk menggandakan file, mengkombinasikan dan membuat teks file baru
+cat: filename: No such file or directory
+
+4.mkdir directoryname
+fidelis@ubuntu:~$ mkdir tito berfungsi untuk membuat file direktori
+fidelis@ubuntu:~$ ls
+Desktop    Music             Pictures  soal       Videos
+Documents  mydirectory       Public    Templates
+Downloads  newdirectoryname  snap      tito
+
+5.mv filename newfilename berfungsi untuk mengubah nama file direktori
+fidelis@ubuntu:~$ mv tito fidel 
+fidelis@ubuntu:~$ ls
+Desktop    fidel        newdirectoryname  snap       Videos
+Documents  Music        Pictures          soal
+Downloads  mydirectory  Public            Templates
+
+6.rmdir directoryname berfungsi untuk menghapus file direktori
+fidelis@ubuntu:~$ rmdir fidel
+fidelis@ubuntu:~$ ls
+Desktop    Downloads  mydirectory       Pictures  snap  Templates
+Documents  Music      newdirectoryname  Public    soal  Videos
+
+7. cd berfungsi untuk masuk ke dalam direktori
+fidelis@ubuntu:~$ cd tito
+fidelis@ubuntu:~/tito$
+
+8. cd ~ berfungsi untuk kembali ke induk direktori
+fidelis@ubuntu:~/Documents$ cd ~
+fidelis@ubuntu:~$ 
+
+9. fidelis@ubuntu:~$ df berfungsi untuk menampilkan jumlah ruang penyimpan
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev             1702276       0   1702276   0% /dev
+tmpfs             352680    1860    350820   1% /run
+/dev/sda9       66372032 5937764  57019692  10% /
+tmpfs            1763392   84156   1679236   5% /dev/shm
+tmpfs               5120       4      5116   1% /run/lock
+tmpfs            1763392       0   1763392   0% /sys/fs/cgroup
+/dev/loop0        261760  261760         0 100% /snap/gnome-3-34-1804/36
+/dev/loop1         56320   56320         0 100% /snap/core18/1880
+/dev/loop3         51072   51072         0 100% /snap/snap-store/467
+/dev/loop4         30720   30720         0 100% /snap/snapd/8542
+/dev/loop2         63616   63616         0 100% /snap/gtk-common-themes/1506
+/dev/sda7         968312   75748    826160   9% /boot
+/dev/sda1         262144   33688    228456  13% /boot/efi
+tmpfs             352676      76    352600   1% /run/user/1000
+/dev/loop5         56704   56704         0 100% /snap/core18/1932
+/dev/loop6         31744   31744         0 100% /snap/snapd/9721
+/dev/loop7         51968   51968         0 100% /snap/snap-store/481
+
+10. fidelis@ubuntu:~$ sudo apt-get update befungsi untuk mengupdate software
+[sudo] password for fidelis: 
+Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [107 kB]
+Hit:2 http://id.archive.ubuntu.com/ubuntu focal InRelease     
+Get:3 http://id.archive.ubuntu.com/ubuntu focal-updates InRelease [111 kB]                                                                   
+Get:3 http://id.archive.ubuntu.com/ubuntu focal-updates InRelease [111 kB]                                                                   
+Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [107 kB]                                                                    
+Get:4 http://security.ubuntu.com/ubuntu focal-security/main amd64 DEP-11 Metadata [24,2 kB]
+Get:5 http://security.ubuntu.com/ubuntu focal-security/universe amd64 DEP-11 Metadata [56,6 kB]                                              
+0% [3 InRelease 84,1 kB/111 kB 75%]  
+
+
